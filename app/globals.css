@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.no-scroll::-webkit-scrollbar-thumb {
+  background-color: gray; /* Thumb color */
+  border-radius: 5px; /* Rounded corners */
+  margin-left: 5px;
+}
+.no-scroll::-webkit-scrollbar {
+  width: 5px;
+  background: transparent;
+}
