@@ -9,7 +9,7 @@ const DynamicMap = dynamic(() => import("../components/Map"), {
   ssr: false,
 });
 
-const weather = () => {
+const Weather = () => {
   const rootStore = useStore();
 
   const searchParams = useSearchParams();
@@ -22,8 +22,6 @@ const weather = () => {
       rootStore.fetchWeather({ latitude: +latitude, longitude: +longitude });
     }
   }, [rootStore, latitude, longitude]);
-
-  console.log(rootStore.weather.cnt);
 
   return (
     <div className="h-full w-full  flex flex-col">
@@ -45,4 +43,4 @@ const weather = () => {
   );
 };
 
-export default weather;
+export default Weather;

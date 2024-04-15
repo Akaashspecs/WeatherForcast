@@ -30,7 +30,7 @@ const SearchInput = () => {
           ).then((res) => res);
 
           const beta = await response.json();
-          console.log("aaaaaaaaaaaaaaaaaaaa", beta);
+
           setValues(beta.results);
         }
         if (searchValue.length === 0) {

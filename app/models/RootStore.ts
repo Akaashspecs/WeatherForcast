@@ -44,7 +44,6 @@ export const RootStore = t
       where?: string;
     }) {
       try {
-        console.log("cbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb", offset, where);
         store.citiesLoading = true;
         const response = yield fetch(
           `https://public.opendatasoft.com/api/explore/v2.1/catalog/datasets/geonames-all-cities-with-a-population-1000/records?limit=20&offset=${offset}&where=${where}`
@@ -66,15 +65,13 @@ export const RootStore = t
             });
           });
 
-        // Detach or clone existing results before replacing them
-        console.log("vvccxxzz", citiesData);
         store.cities.results.replace(citiesData);
         store.cities.total_count = responseData.total_count;
         store.citiesLoading = false;
 
         // Replace with the array of CityModel instances
       } catch (error) {
-        // console.error("Failed to fetch cities data", error);
+        console.error("Failed to fetch cities data");
       }
     }),
     fetchWeather: flow(function* ({
@@ -85,17 +82,16 @@ export const RootStore = t
       latitude: number;
     }) {
       try {
-        // const response = yield fetch(
-        //   `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=f3ce6b97722b9d007b1d00e2f442432d`
-        // );
+        const response = yield fetch(
+          `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=f3ce6b97722b9d007b1d00e2f442432d`
+        );
 
         const responseData = mockData;
-        // console.log(response);
 
         const data = weatherModel.create(responseData);
         store.weather = data;
       } catch (error) {
-        // console.error("Failed to fetch cities data", error);
+        console.error("Failed to fetch cities data", error);
       }
     }),
   }))

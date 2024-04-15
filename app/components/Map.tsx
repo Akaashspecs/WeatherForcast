@@ -9,7 +9,6 @@ import icon from "leaflet/dist/images/marker-icon.png";
 
 const Map = ({ lat, lon }: { lat?: number; lon?: number }) => {
   const [coord, setCoord] = useState<LatLngLiteral | null>(null);
-  console.log("dddddd", lat, lon);
 
   useEffect(() => {
     if (lat && lon) {
@@ -20,7 +19,6 @@ const Map = ({ lat, lon }: { lat?: number; lon?: number }) => {
     }
     if (!lat && !lon && navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
-        console.log("cosssssord", position);
         setCoord({
           lat: position.coords.latitude,
           lng: position.coords.longitude,

@@ -74,10 +74,7 @@ const TaskTable = observer(({ rootStore }: { rootStore: RootStoreType }) => {
     getSortedRowModel: getSortedRowModel(),
   });
   const { ref, inView } = useInView({ threshold: 0 });
-  console.log(
-    "ddccccccccccvcvcvcvcvcvcv",
-    rootStore.cities.results.map((item) => item.name)
-  );
+
   const fetchMoreData = () => {
     setIsLoading(true);
     // Simulate fetching data from an API
@@ -92,7 +89,6 @@ const TaskTable = observer(({ rootStore }: { rootStore: RootStoreType }) => {
   }, [rootStore.cities.results]);
 
   useEffect(() => {
-    console.log("ddccccccccccvcvcvcvcvcvcv");
     if (inView && !isLoading) {
       fetchMoreData();
     }

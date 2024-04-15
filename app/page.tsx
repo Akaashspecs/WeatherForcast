@@ -34,7 +34,6 @@ const Home = observer(() => {
   const [selectedOption, setSelectedOption] = useState<any>(null);
   useEffect(() => {
     if (rootStore) {
-      console.log("23", selectedOption?.value);
       rootStore.fetchCitiesData({
         offset: 0,
         where: selectedOption ? selectedOption?.value : "",
