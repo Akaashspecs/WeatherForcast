@@ -69,14 +69,14 @@ const Home = observer(() => {
   };
 
   return (
-    <div className="h-full w-full  flex flex-col">
+    <div className="h-full w-full  flex flex-col relative">
       <div className="flex items-center shadow-black shadow-2xl py-2 px-5 rounded-2xl">
         <div className="flex items-center min-w-max">
           <div className="text-white text-3xl font-semibold">Wehather App</div>
           <img src="/weather-logos.png" className="h-16" />
         </div>
 
-        <div className="flex justify-around w-full pl-4">
+        <div className="flex justify-around w-full pl-4 relative">
           <SearchInput />
           <Select
             className="w-96"
@@ -102,7 +102,7 @@ const Home = observer(() => {
           <div className="text-white text-2xl text-center font-semibold">
             My Location
           </div>
-          {/* <DynamicMap /> */}
+          <DynamicMap />
         </div>
         <TaskTable rootStore={rootStore} />
       </div>

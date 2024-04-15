@@ -34,7 +34,7 @@ const Weather = () => {
         <div className="">
           {" "}
           <div className="text-white text-2xl text-center font-semibold">
-            My Location
+            City Location
           </div>
           <DynamicMap lat={+latitude!} lon={+longitude!} />
         </div>
